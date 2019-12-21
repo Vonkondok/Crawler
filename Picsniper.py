@@ -1,14 +1,19 @@
 # 20191109 26-08-11 [9356]
 # My first pachong
+
+# 20191201 26-09-03
+# Scraper v2
 import os
-import re
-import urllib.request
-import requests
+import urllib
+from urllib import request
 
 # Variables
 modelname = '22162'
 foldername = '31558'
 capacity = 104
+
+# Set up a new folder
+os.mkdir((r'D:\Desktop' + '\{}').format(foldername))
 
 def seqfile(seq):
     if seq in range(10):
@@ -38,4 +43,7 @@ def downpic(picurl,picpath):
         f.close()
 
 for ml in range(capacity):
-    downpic(sequrl(ml),seqfile(ml))
+    try:
+        downpic(sequrl(ml),seqfile(ml))
+    except SyntaxError:
+        continue
